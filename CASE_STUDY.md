@@ -1,156 +1,399 @@
-# FocusFlow — Portfolio Case Study
+# FocusFlow Case Study
 
-## 1. Project Overview
+## Project Overview
 
-FocusFlow adalah aplikasi produktivitas mobile-first yang membantu pengguna menjaga fokus dengan menggabungkan Pomodoro timer, task progress, mood check-in, dan analytics. Aplikasi ini dibuat untuk pengguna yang sering memiliki banyak tugas, tetapi kesulitan memulai, menjaga ritme, dan memahami pola fokus mereka sendiri.
+**FocusFlow** is a mood-aware productivity app designed to help users build healthier focus habits by combining a focus timer, task management, mood check-in, and progress analytics.
 
-## 2. Problem Statement
+The app is built as a mobile-first productivity tool for students, developers, and creators who want to manage their tasks more intentionally while considering their current mood and energy level.
 
-Banyak mahasiswa dan junior developer memiliki daftar tugas yang panjang, tetapi tidak selalu tahu tugas mana yang harus dikerjakan terlebih dahulu dan berapa lama mereka perlu fokus. Aplikasi task manager biasa hanya mencatat tugas, sedangkan aplikasi Pomodoro biasa hanya menghitung waktu. Keduanya sering tidak mempertimbangkan kondisi mental pengguna, seperti lelah, stres, atau sedang bersemangat.
+---
 
-FocusFlow dirancang untuk menjawab masalah tersebut dengan menghubungkan tiga hal penting: kondisi mood pengguna, prioritas tugas, dan progress sesi fokus.
+## Background
 
-## 3. Target User
+Many students, developers, and creators struggle to stay focused consistently. The issue is not always caused by laziness or poor discipline. In many cases, productivity is affected by mood, energy, task difficulty, and lack of clear starting points.
 
-Target utama:
+Traditional productivity tools usually focus on either task lists or timers. However, they often do not help users understand how their emotional state affects their ability to focus.
 
-- Mahasiswa yang mengerjakan tugas kuliah, proyek, atau skripsi.
-- Junior developer yang belajar coding dan mengerjakan portfolio.
-- Creative learner yang ingin menjaga rutinitas produktif tanpa merasa terlalu dipaksa.
+FocusFlow was created to explore a more human-centered productivity experience by connecting three important elements:
 
-## 4. User Research Draft
+- What the user needs to do
+- How the user currently feels
+- How much focused work the user has completed
 
-Catatan: bagian ini adalah draft struktur riset. Jika digunakan di portofolio resmi, isi dengan hasil wawancara nyata.
+---
 
-### Calon responden yang relevan
+## Problem Statement
 
-1. Mahasiswa tingkat akhir yang sedang mengerjakan tugas akhir.
-2. Mahasiswa atau fresh graduate yang sedang membangun portfolio digital.
-3. Junior developer yang sering belajar mandiri dan mengatur jadwal coding sendiri.
+Many users want to be productive but often feel overwhelmed when starting their tasks. A normal to-do list can show what needs to be done, but it does not guide users on how to start or how long they should focus based on their current condition.
 
-### Pertanyaan interview
+At the same time, a basic Pomodoro timer helps users work in time blocks, but it does not connect focus sessions to task progress or mood patterns.
 
-1. Bagaimana kamu biasanya menentukan tugas mana yang dikerjakan lebih dulu?
-2. Apa yang membuat kamu sulit memulai sesi belajar atau coding?
-3. Apakah mood atau energi harian memengaruhi produktivitasmu?
-4. Apakah kamu pernah menggunakan Pomodoro timer? Apa kekurangannya?
-5. Informasi apa yang paling berguna setelah kamu menyelesaikan sesi fokus?
+**FocusFlow aims to solve this gap by helping users manage tasks, start focus sessions, track mood, and visualize progress in one simple mobile-first app.**
 
-### Insight awal yang diasumsikan
+---
 
-- User tidak hanya butuh timer, tetapi juga arahan tentang task yang sedang dikerjakan.
-- User ingin progress yang terlihat agar merasa lebih termotivasi.
-- User sering merasa tidak produktif karena tidak mencatat durasi fokus secara konsisten.
-- Mood memengaruhi durasi fokus yang realistis untuk dilakukan.
+## Target Users
 
-## 5. Pain Points
+FocusFlow is designed for:
 
-- User punya banyak tugas tetapi bingung memulai dari mana.
-- Timer dan task manager biasanya terpisah.
-- Tidak ada hubungan antara sesi fokus dan progress tugas.
-- User tidak bisa melihat pola fokus dalam beberapa hari terakhir.
-- Aplikasi produktivitas sering terasa terlalu kaku dan tidak personal.
+- Students working on assignments or personal projects
+- Junior developers learning or building portfolio projects
+- Digital creators managing creative tasks
+- Users who want a simple productivity tool without complex setup
+- Users who need a more mindful way to stay focused
 
-## 6. Solution
+---
 
-FocusFlow menyediakan pengalaman yang lebih personal melalui:
+## User Pain Points
 
-- Mood check-in sebelum fokus.
-- Rekomendasi sesi berdasarkan mood.
-- Task dengan due date dan prioritas.
-- Target focus session per task.
-- Timer yang langsung menambah progress task.
-- Analytics untuk melihat waktu fokus, mood, dan penyelesaian task.
-- Settings agar user bisa menyesuaikan durasi, break, notifikasi, dan nama.
+The main pain points identified for this project are:
 
-## 7. Key Features
+1. Users often do not know where to start when they have many tasks.
+2. Users may feel pressured by productivity tools that ignore mood and energy.
+3. To-do lists do not show how much focused effort has been spent on each task.
+4. Timer apps usually do not connect completed sessions to task progress.
+5. Users need simple feedback to feel motivated after completing a focus session.
+6. Users want a mobile-friendly productivity tool that feels lightweight and modern.
 
-### Mood Check-in
+---
 
-User memilih kondisi mood sebelum memulai sesi. Mood disimpan per hari dan digunakan sebagai konteks pada analytics.
+## Product Goals
 
-### Focus Timer
+The goals of FocusFlow are:
 
-User dapat memilih durasi 25, 45, atau 60 menit. Setelah sesi selesai, aplikasi memberikan sound alert, toast, confetti, dan browser notification jika diaktifkan.
+- Help users start a focus session more easily
+- Connect focus sessions with real task progress
+- Encourage users to check in with their mood before working
+- Provide visual feedback after completing a session
+- Make productivity tracking simple and understandable
+- Create a mobile-first app experience that can be installed as a PWA
 
-### Task Progress Integration
+---
 
-User dapat memilih task yang sedang dikerjakan pada timer. Ketika sesi selesai, progress task bertambah otomatis. Jika target focus session tercapai, task ditandai selesai.
+## Solution
 
-### Smart Break
+FocusFlow combines several productivity features into one experience:
 
-Aplikasi mendukung short break dan long break. Long break berjalan setelah sejumlah sesi tertentu, default setelah 4 focus session.
+1. **Mood Check-In**  
+   Users can record how they feel before starting a session. The app gives a session suggestion based on the selected mood.
 
-### Analytics
+2. **Focus Timer**  
+   Users can choose between 25, 45, and 60-minute focus sessions.
 
-Analytics menampilkan total session, total minutes, completed tasks, daily focus, mood by session, dan task by category.
+3. **Task Connection**  
+   Users can select a task before starting the timer. When the session ends, the selected task progress is automatically updated.
 
-### PWA
+4. **Task Progress Tracking**  
+   Each task can have a target number of focus sessions. Once the target is reached, the task can be automatically marked as completed.
 
-Aplikasi dapat dibuat installable melalui manifest dan service worker, sehingga dapat dipasang seperti aplikasi mobile setelah dideploy.
+5. **Break System**  
+   The app supports short breaks, long breaks, and automatic break start after a focus session.
 
-## 8. Iteration
+6. **Analytics**  
+   Users can view focus minutes, completed sessions, task completion, and mood-session patterns.
 
-### V1
+7. **Settings**  
+   Users can customize their name, default focus duration, break duration, long break interval, sound, and notification preferences.
 
-Fitur awal:
+8. **PWA Support**  
+   The app includes a manifest and service worker, making it ready to be installed on supported devices after deployment.
 
-- Timer sederhana.
-- Task list sederhana.
-- Mood check-in dasar.
-- Tampilan dark UI.
+---
 
-Kekurangan V1:
+## Key Features
 
-- Data belum tersimpan.
-- Task tidak bisa diedit.
-- Timer belum terhubung dengan progress task.
-- Tidak ada due date dan priority.
-- Belum ada onboarding dan settings.
-- Belum PWA-ready.
+### 1. Onboarding
 
-### Feedback
+The onboarding introduces the app's main purpose to new users:
 
-Aplikasi perlu lebih siap sebagai portfolio product, bukan hanya demo UI. Fitur harus menunjukkan alur yang jelas: user membuat task, memilih prioritas, menjalankan focus session, lalu melihat progress dan analytics.
+- Focus with intention
+- Mood-aware productivity
+- Track focus rhythm
 
-### V2 / Final
+This helps users understand the value of the app before entering the main screen.
 
-Perbaikan:
+---
 
-- Menambahkan localStorage.
-- Menambahkan edit task.
-- Menambahkan due date, priority, dan target focus session.
-- Menghubungkan timer dengan progress task.
-- Menambahkan auto-start break dan long break.
-- Menambahkan confetti, sound, dan browser notification.
-- Menambahkan onboarding dan settings.
-- Menambahkan manifest dan service worker untuk PWA.
-- Menambahkan case study documentation.
+### 2. Mood Check-In
 
-## 9. Design Direction
+Users can choose their current mood from five options:
 
-Visual style yang digunakan adalah modern dark glassmorphism dengan aksen orange, blue, green, yellow, dan purple. Tujuannya agar aplikasi terasa modern, calm, dan cocok untuk produktivitas tanpa terlihat terlalu formal.
+- Stressed
+- Tired
+- Neutral
+- Good
+- Pumped
 
-## 10. Tech Stack
+Each mood provides a different session suggestion. This creates a more personalized focus experience.
+
+---
+
+### 3. Focus Timer
+
+The timer supports:
+
+- 25-minute session
+- 45-minute session
+- 60-minute session
+- Pause and reset
+- Short break
+- Long break
+- Auto-start break
+- Sound alert
+- Browser notification
+
+The timer is designed to be simple and focused, with a large countdown display and clear session status.
+
+---
+
+### 4. Task Management
+
+Users can:
+
+- Add tasks
+- Edit tasks
+- Delete tasks
+- Mark tasks as completed
+- Set category
+- Set priority
+- Set due date
+- Set target focus sessions
+
+This makes the task system more useful than a basic checklist.
+
+---
+
+### 5. Task and Timer Integration
+
+A key feature of FocusFlow is the connection between tasks and the timer.
+
+When a user completes a focus session, the selected task automatically receives progress. If the task reaches its target session count, it is marked as completed.
+
+This helps users see that progress is not only about finishing a task, but also about the focused effort spent on it.
+
+---
+
+### 6. Analytics
+
+The analytics page displays:
+
+- Total focus sessions
+- Total focus minutes
+- Completed tasks
+- Weekly focus activity
+- Mood and session relationship
+- Task progress by category
+
+An empty state is also shown when there is no session data yet.
+
+---
+
+### 7. Settings
+
+Users can customize:
+
+- User name
+- Default focus duration
+- Short break duration
+- Long break duration
+- Long break interval
+- Default task target
+- Auto-start break
+- Sound alert
+- Browser notification
+
+The settings page gives users control over their own productivity flow.
+
+---
+
+### 8. PWA Support
+
+FocusFlow includes:
+
+- Web app manifest
+- Service worker
+- App icons
+- Mobile-first responsive behavior
+
+After deployment, the app can be installed on supported browsers and opened from the home screen.
+
+---
+
+## Design Direction
+
+FocusFlow uses a **modern dark glassmorphism** visual style.
+
+The design direction focuses on:
+
+- Calm dark background
+- Soft gradients
+- Glass-like cards
+- Rounded corners
+- Subtle borders
+- Clear visual hierarchy
+- Mobile-first layout
+
+The goal is to make the app feel modern, focused, and comfortable to use for long periods.
+
+---
+
+## UI/UX Considerations
+
+Several UX decisions were made to improve the user experience:
+
+### Mobile-First Layout
+
+The app is designed primarily for mobile use. On desktop, the app appears inside a phone mockup. On mobile, it becomes fullscreen for a more native-like experience.
+
+### Clear Starting Point
+
+The home screen gives users a quick way to start a focus session and see their current task progress.
+
+### Mood-Based Recommendation
+
+The mood check-in encourages users to choose a session length that fits their current condition.
+
+### Visual Feedback
+
+Confetti and toast messages provide positive reinforcement after a completed focus session.
+
+### Empty States
+
+Empty states help users understand what to do when there is no data yet.
+
+### Customization
+
+Settings allow users to adjust the app according to their preferred working style.
+
+---
+
+## Development Process
+
+The development process focused on turning FocusFlow into a complete and usable productivity app.
+
+Several important improvements were added during development:
+
+- Persistent data storage using `localStorage`
+- Add, edit, and delete task functionality
+- Task priority and due date
+- Target focus sessions for each task
+- Timer integration with task progress
+- Automatic task completion when the focus target is reached
+- Short break and long break system
+- Auto-start break option
+- Sound alert and browser notification
+- Confetti animation after completing a focus session
+- Onboarding for new users
+- Settings page for personalization
+- Empty state for analytics
+- PWA support with manifest and service worker
+- Fullscreen mobile layout with safe-area handling for iPhone screens
+
+These refinements helped make the app more complete, practical, and suitable as a portfolio project.
+
+---
+
+## Technical Implementation
+
+FocusFlow was built using:
 
 - React
 - Vite
-- CSS
+- JavaScript
 - LocalStorage
-- Notification API
+- CSS-in-JS
+- Web Notification API
 - Web Audio API
-- Progressive Web App setup
+- PWA manifest
+- Service worker
 
-## 11. Future Improvement
+The app currently uses local storage instead of a backend, which keeps the project lightweight and easy to run.
 
-- Backend authentication.
-- Cloud sync antar device.
-- Calendar integration.
-- Custom focus duration.
-- More detailed weekly and monthly analytics.
-- Export productivity report.
-- Real user testing and usability iteration.
+---
 
-## 12. Portfolio Summary
+## Data Persistence
 
-FocusFlow is a mood-aware productivity app that connects focus sessions with task progress. Unlike a basic Pomodoro timer, FocusFlow helps users understand how their mood, task priority, and work sessions interact, making productivity feel more personal, measurable, and sustainable.
+The app stores user data locally using `localStorage`.
+
+Stored data includes:
+
+- Tasks
+- Focus sessions
+- Mood check-in
+- Settings
+- Onboarding status
+
+This allows the app to keep user data even after refreshing the browser.
+
+---
+
+## Challenges
+
+Some challenges during development included:
+
+### 1. Making the App Feel Native on Mobile
+
+The app needed to look like a phone mockup on desktop but become fullscreen on mobile. This required responsive layout handling and safe-area adjustment for iPhone screens.
+
+### 2. Connecting Timer and Task Progress
+
+The timer needed to update the selected task after a completed session. This required a clear relationship between task data and session data.
+
+### 3. Handling Mood Data Per Day
+
+Mood data should not reset on every refresh, but it should still be treated as daily data. This was solved by saving the mood together with the current date.
+
+### 4. Making the App PWA-Ready
+
+To make the app installable, manifest and service worker files were added.
+
+---
+
+## What I Learned
+
+Through this project, I learned how to:
+
+- Build a complete React app with multiple screens
+- Manage state across different features
+- Store persistent data using LocalStorage
+- Connect timer logic with task progress
+- Design a mobile-first user experience
+- Create a PWA-ready project structure
+- Improve a product through feature refinement
+- Think about productivity from a more human-centered perspective
+
+---
+
+## Future Improvements
+
+Future improvements that can be added include:
+
+- User authentication
+- Cloud sync
+- Multi-device synchronization
+- Calendar integration
+- Task reminder notifications
+- Custom focus presets
+- More detailed analytics
+- Productivity report export
+- Dark and light theme switcher
+- AI-based focus recommendation
+- Real user testing and usability feedback
+
+---
+
+## Conclusion
+
+FocusFlow is a productivity app that combines task management, focus sessions, mood awareness, and analytics into one mobile-first experience.
+
+The project demonstrates how productivity tools can be more personal and supportive by considering not only what users need to do, but also how they feel when doing it.
+
+FocusFlow was built as a portfolio project to explore product thinking, UI/UX design, React development, and PWA implementation.
+
+---
+
+## Author
+
+Created by **I Komang Elian Triananda Kusuma**
+
+GitHub: [komangeliann](https://github.com/komangeliann)
